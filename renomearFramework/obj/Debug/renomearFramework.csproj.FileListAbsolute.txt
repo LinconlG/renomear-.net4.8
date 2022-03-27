@@ -1,0 +1,9 @@
+C:\Users\linconll\Documents\Visual Studio 2022\Repositorio\renomearFramework\renomearFramework\bin\Debug\renomearFramework.exe.config
+C:\Users\linconll\Documents\Visual Studio 2022\Repositorio\renomearFramework\renomearFramework\bin\Debug\renomearFramework.exe
+C:\Users\linconll\Documents\Visual Studio 2022\Repositorio\renomearFramework\renomearFramework\bin\Debug\renomearFramework.pdb
+C:\Users\linconll\Documents\Visual Studio 2022\Repositorio\renomearFramework\renomearFramework\obj\Debug\renomearFramework.csproj.AssemblyReference.cache
+C:\Users\linconll\Documents\Visual Studio 2022\Repositorio\renomearFramework\renomearFramework\obj\Debug\renomearFramework.csproj.SuggestedBindingRedirects.cache
+C:\Users\linconll\Documents\Visual Studio 2022\Repositorio\renomearFramework\renomearFramework\obj\Debug\renomearFramework.csproj.ResolveComReference.cache
+C:\Users\linconll\Documents\Visual Studio 2022\Repositorio\renomearFramework\renomearFramework\obj\Debug\renomearFramework.csproj.CoreCompileInputs.cache
+C:\Users\linconll\Documents\Visual Studio 2022\Repositorio\renomearFramework\renomearFramework\obj\Debug\renomearFramework.exe
+C:\Users\linconll\Documents\Visual Studio 2022\Repositorio\renomearFramework\renomearFramework\obj\Debug\renomearFramework.pdb
