@@ -10,19 +10,17 @@ namespace renomearFramework
             try
             {
 
-                Console.Write("Insira o diretorio da pasta que contem os arquivos: ");
+                //Console.Write("Insira o diretorio da pasta que contem os arquivos: ");
                 string diretorio = Console.ReadLine();
                 Console.WriteLine();
 
-                /*Console.Write("Digite extensão dos arquivos na pasta (com o ponto): ");
-                string extensao = Console.ReadLine();
-                Console.WriteLine();*/
-                
-                Console.Write("Insira o diretorio da planilha excel, seguido do nome e extensão: ");
+
+
+                //Console.Write("Insira o diretorio da planilha excel, seguido do nome e extensão: ");
                 string diretorioExcel = Console.ReadLine();
                 Console.WriteLine();
 
-                Console.Write("Digite a quatidade de linhas: ");
+                //Console.Write("Digite a quatidade de linhas: ");
                 int linhas = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
 
@@ -64,15 +62,42 @@ namespace renomearFramework
 
                 FileInfo[] listaArquivos = diretorioPasta.GetFiles();
 
-                foreach (FileInfo arquivo in listaArquivos) //renomeia os arquivos
+                foreach (FileInfo arquivo in listaArquivos)
                 {
+                    extensao = Path.GetExtension(arquivo.FullName);
+                    int ind = Path.GetFileName(arquivo.FullName).ToLower().IndexOf(" rev.");
+                    string caminhoCompleto = arquivo.FullName;
+                    string nomeComExtensao = Path.GetFileName(caminhoCompleto);
+                    bool flag = false;
+
                     for (int i = 0; i < linhas; i++)
                     {
-                        if (arquivo.FullName.Substring(0, arquivo.FullName.Length - 4) == $@"{diretorioPasta}\{nomesArquivos[i]}")
+                        if (ind != -1)
                         {
-                            extensao = arquivo.FullName.Substring(arquivo.FullName.Length - 4, 4);
-                            File.Move(arquivo.FullName, arquivo.FullName.Replace($"{extensao}", $" Rev.{revisoes[i]}{extensao}"));
-                            break;
+                            if (flag == false)
+                            {
+                                int inddot = Path.GetFileName(arquivo.FullName).LastIndexOf(".");
+                                string rev = Path.GetFileName(arquivo.FullName).Substring(ind, inddot - ind);
+                                caminhoCompleto = caminhoCompleto.Replace($"{rev}", $"");
+                                nomeComExtensao = Path.GetFileName(caminhoCompleto);
+                                flag = true;
+                            }
+                            if (nomeComExtensao == $"{nomesArquivos[i]}{extensao}")
+                            {
+                                File.Move(arquivo.FullName, caminhoCompleto);
+
+                                File.Move(caminhoCompleto, caminhoCompleto.Replace($"{extensao}", $" Rev.{revisoes[i]}{extensao}"));
+                                break;
+                            }
+
+                        }
+                        else
+                        {
+                            if (nomeComExtensao == $"{nomesArquivos[i]}{extensao}")
+                            {
+                                File.Move(arquivo.FullName, arquivo.FullName.Replace($"{extensao}", $" Rev.{revisoes[i]}{extensao}"));
+                                break;
+                            }
                         }
                     }
                 }
@@ -82,10 +107,12 @@ namespace renomearFramework
                 planilha.Quit();
 
                 Console.WriteLine("Finalizado!");
+                Console.ReadLine();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                Console.ReadLine();
             }
         }
     }
