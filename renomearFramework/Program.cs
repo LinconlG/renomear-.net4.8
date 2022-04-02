@@ -10,17 +10,15 @@ namespace renomearFramework
             try
             {
 
-                //Console.Write("Insira o diretorio da pasta que contem os arquivos: ");
+                Console.Write("Insira o diretorio da pasta que contem os arquivos: ");
                 string diretorio = Console.ReadLine();
                 Console.WriteLine();
 
-
-
-                //Console.Write("Insira o diretorio da planilha excel, seguido do nome e extensão: ");
+                Console.Write("Insira o diretorio da planilha excel, seguido do nome e extensão: ");
                 string diretorioExcel = Console.ReadLine();
                 Console.WriteLine();
 
-                //Console.Write("Digite a quatidade de linhas: ");
+                Console.Write("Digite a quatidade de linhas: ");
                 int linhas = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
 
