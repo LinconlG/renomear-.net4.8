@@ -9,7 +9,6 @@ namespace renomearFramework
         {
             try
             {
-
                 Console.Write("Insira o diretorio da pasta que contem os arquivos: ");
                 string diretorio = Console.ReadLine();
                 Console.WriteLine();
@@ -31,8 +30,8 @@ namespace renomearFramework
                 var planilha = new Microsoft.Office.Interop.Excel.Application();
                 var wb = planilha.Workbooks.Open($@"{diretorioExcel}", ReadOnly: true);
                 var ws = wb.Worksheets[1];
-                var r = ws.Range["A1"].Resize[linhas, colunas];
-                var array = r.Value;
+                var r = ws.Range["A1"].Resize[linhas, colunas];// cria uma matriz?
+                var array = r.Value;// um vetor(matriz?) que recebe os valores das celulas
 
                 string[] nomesArquivos = new string[linhas];
                 string[] revisoes = new string[linhas];
@@ -40,10 +39,10 @@ namespace renomearFramework
                 //---------------------------------------------------------------
 
                 for (int i = 1; i <= linhas; i++) //os dois vetores recebem os nomes e revisoes que estão na planilha
-                {
+                {                                 
                     for (int j = 1; j <= colunas; j++)
                     {
-                        string text = Convert.ToString(array[i, j]);
+                        string text = Convert.ToString(array[i, j]);//o laço começa com i = 1 pq a primeira celula começa do 1 e não do 0
 
                         if (j == 1)
                         {
